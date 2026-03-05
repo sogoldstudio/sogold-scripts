@@ -220,10 +220,26 @@ p, .sqsrte-paragraph {
   letter-spacing: 0.04em !important;
 }
 
-/* Italic in headings becomes coral — editorial accent */
-h1 em, h2 em {
+/* Italic emphasis in headings — scoped by section theme.
+   Apply italic to ONE word only in the editor for best results.
+   Fully italic headings will stay white/olive (correct). */
+/* On light/white sections: coral accent */
+[data-section-theme="white"] h1 em,
+[data-section-theme="white"] h2 em,
+[data-section-theme="light"] h1 em,
+[data-section-theme="light"] h2 em,
+[data-section-theme="lightest"] h1 em,
+[data-section-theme="lightest"] h2 em {
   font-style: italic !important;
   color: var(--s8-coral) !important;
+}
+/* On dark/olive sections: fluoro accent */
+[data-section-theme="dark"] h1 em,
+[data-section-theme="dark"] h2 em,
+[data-section-theme="dark-bold"] h1 em,
+[data-section-theme="dark-bold"] h2 em {
+  font-style: italic !important;
+  color: var(--s8-fluoro) !important;
 }
 
 /* Bold text in body uses olive */
@@ -311,6 +327,28 @@ blockquote p,
 [data-section-theme="dark"] .sqs-button-element--primary:hover,
 [data-section-theme="black"] .sqs-button-element--primary:hover {
   background-color: #d6eb35 !important;
+  opacity: 1 !important;
+}
+
+/* Secondary (outlined) button on dark/olive sections */
+[data-section-theme="dark"] .sqs-button-element--secondary,
+[data-section-theme="dark-bold"] .sqs-button-element--secondary {
+  border: 1.5px solid rgba(255,255,255,0.4) !important;
+  color: var(--s8-white) !important;
+  background-color: transparent !important;
+}
+[data-section-theme="dark"] .sqs-button-element--secondary:hover,
+[data-section-theme="dark-bold"] .sqs-button-element--secondary:hover {
+  border-color: var(--s8-white) !important;
+}
+/* Tertiary button on dark sections */
+[data-section-theme="dark"] .sqs-button-element--tertiary,
+[data-section-theme="dark-bold"] .sqs-button-element--tertiary {
+  color: rgba(255,255,255,0.7) !important;
+  text-decoration-color: rgba(255,255,255,0.3) !important;
+}
+[data-section-theme="dark"] .sqs-button-element--tertiary:hover {
+  color: var(--s8-white) !important;
   opacity: 1 !important;
 }
 
@@ -477,20 +515,37 @@ body:not(.header--menu-open) .header-nav-item--active > a:not(.header-nav-folder
   color: var(--s8-white) !important;
 }
 
-/* Bright sections — fluoro yellow */
-[data-section-theme="bright"],
-[data-section-theme="bright-inverse"] {
+/* Bright 1 — fluoro yellow (set palette slot to #EAFF4D) */
+[data-section-theme="bright"] {
   background-color: var(--s8-fluoro) !important;
 }
 [data-section-theme="bright"] h1,
 [data-section-theme="bright"] h2,
+[data-section-theme="bright"] h3,
+[data-section-theme="bright"] h4 {
+  color: var(--s8-olive) !important;
+}
+[data-section-theme="bright"] p {
+  color: rgba(58,66,33,0.7) !important;
+}
+[data-section-theme="bright"] .sqs-button-element--primary {
+  background-color: var(--s8-olive) !important;
+  color: var(--s8-white) !important;
+}
+[data-section-theme="bright"] .sqs-button-element--secondary {
+  border-color: var(--s8-olive) !important;
+  color: var(--s8-olive) !important;
+}
+
+/* Bright inverse — same fluoro base */
+[data-section-theme="bright-inverse"] {
+  background-color: var(--s8-fluoro) !important;
+}
 [data-section-theme="bright-inverse"] h1,
 [data-section-theme="bright-inverse"] h2,
-[data-section-theme="bright"] h3,
 [data-section-theme="bright-inverse"] h3 {
   color: var(--s8-olive) !important;
 }
-[data-section-theme="bright"] p,
 [data-section-theme="bright-inverse"] p {
   color: rgba(58,66,33,0.7) !important;
 }
