@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════
    STUDIO 8 — SQUARESPACE SITE STYLES
-  sogold.studio · Honor-Bowden
+   sogold.studio · github.com/sogoldstudio/sogold-scripts
 
    HOW THIS WORKS
    ─────────────────────────────────────────────────────────
@@ -81,13 +81,41 @@ html {
   box-sizing: border-box;
 }
 
-/* Disable auto-hyphenation — looks bad with editorial type */
-p, h1, h2, h3, h4, h5 {
+/* Heading spacing */
+h1, h2, h3, h4 {
+  margin-bottom: 1rem;
+}
+
+/* Balanced text wrapping + no hyphenation
+   text-wrap: balance works in modern browsers (Chrome 114+, Safari 17.5+) */
+h1, h2, h3, h4, p {
+  text-wrap: balance;
   -webkit-hyphens: none !important;
   -moz-hyphens: none !important;
   hyphens: none !important;
   word-break: normal !important;
   overflow-wrap: normal !important;
+}
+
+/* Anchor scroll offset — accounts for fixed nav height */
+.anchor-link {
+  scroll-margin: 150px;
+}
+
+/* Hide video background pause button */
+.background-pause-button {
+  display: none !important;
+}
+
+/* Code blocks — wrap instead of scroll */
+.source-code {
+  white-space: pre-wrap !important;
+  background: var(--s8-white);
+  border-radius: var(--s8-radius);
+  padding: 10px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--s8-ink);
 }
 
 /* Remove Squarespace's default link underlines */
@@ -322,7 +350,14 @@ blockquote p,
 body:not(.header--menu-open) .header-nav-item--active > a,
 body:not(.header--menu-open) .header-nav-item > a:hover {
   opacity: 1;
+  color: var(--s8-olive) !important;
   border-bottom: 2px solid var(--s8-fluoro) !important;
+}
+
+/* Nav wrapper hover — explicit colour (replaces LESS ~hsla syntax) */
+.header-nav-wrapper a:hover {
+  color: var(--s8-olive) !important;
+  opacity: 1;
 }
 
 /* Nav CTA button (Gallery Hire) */
@@ -976,15 +1011,25 @@ body:not(.header--menu-open) .header-nav-item--active > a:not(.header-nav-folder
    ─────────────────────────────────────────────────────────── */
 
 /* Footer links */
-footer .sqs-block-html a {
+footer .sqs-block-html a,
+footer .image-title-wrapper a,
+footer .image-subtitle-wrapper a,
+footer .sqs-image-caption a,
+footer .image-caption a,
+footer .sqs-block-newsletter a,
+footer .list-item-content__description a,
+footer .list-section-title a {
   font-family: 'Roboto', sans-serif !important;
   font-size: 0.85rem !important;
   color: var(--s8-soft) !important;
   text-decoration: none !important;
+  text-decoration-line: none !important;
   background-image: none !important;
   transition: var(--s8-transition) !important;
 }
-footer .sqs-block-html a:hover {
+footer .sqs-block-html a:hover,
+footer .image-title-wrapper a:hover,
+footer .list-item-content__description a:hover {
   color: var(--s8-olive) !important;
   opacity: 1 !important;
 }
@@ -1043,6 +1088,28 @@ footer p {
    Use these as custom CSS classes in Squarespace blocks.
    Add via: block → pencil → Advanced → Additional CSS Class
    ─────────────────────────────────────────────────────────── */
+
+/* ── SVG INLINE ICON SYSTEM ──────────────────────────────
+   Use these classes on <span> wrapping inline SVGs.
+   Example: <span class="icon-inline icon-left">SVG HERE</span>
+   ────────────────────────────────────────────────────── */
+
+.icon-inline {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: -0.125em;
+}
+.icon-left  { margin-right: 0.4em; }
+.icon-right { margin-left: 0.4em; }
+.icon-sm    { width: 0.85em; height: 0.85em; }
+.icon-lg    { width: 1.25em; height: 1.25em; }
+
+/* Icon inside Squarespace buttons */
+.sqs-block-button .icon-inline {
+  vertical-align: middle;
+}
 
 /* .s8-eyebrow — small uppercase label above headings */
 .s8-eyebrow p {
@@ -1117,11 +1184,6 @@ footer p {
 /* 21 — SCROLL & INTERACTION
    ─────────────────────────────────────────────────────────── */
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Global hover opacity (links, thumbnails) */
 .sqs-block-html a:hover,
 .summary-read-more-link:hover,
@@ -1175,6 +1237,6 @@ html {
 
 /* ═══════════════════════════════════════════════════════════
    END OF FILE
-   sogold.studio · Honor-Bowden
-   GitHub: sogoldstudio/sogold-scripts · studio8.css
+   Studio 8 · sogold.studio
+   github.com/sogoldstudio/sogold-scripts · studio8.css
    ═══════════════════════════════════════════════════════════ */
