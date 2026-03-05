@@ -1,0 +1,1180 @@
+/* ═══════════════════════════════════════════════════════════
+   STUDIO 8 — SQUARESPACE SITE STYLES
+  sogold.studio · Honor-Bowden
+
+   HOW THIS WORKS
+   ─────────────────────────────────────────────────────────
+   This file lives on GitHub and is loaded via Code Injection.
+   To install, add this to Squarespace → Settings →
+   Advanced → Code Injection → Header:
+
+   <link rel="stylesheet"
+   href="https://cdn.jsdelivr.net/gh/YOUR-USERNAME/studio8@main/studio8.css">
+
+   MISSION CONTROL
+   ─────────────────────────────────────────────────────────
+   Paste only this block into Squarespace → Design →
+   Custom CSS. These tokens override the defaults below.
+   Edit here to retheme without touching the main file.
+
+   :root {
+     --s8-olive:       #3A4221;
+     --s8-pale:        #E7E4D9;
+     --s8-mid:         #9DA190;
+     --s8-fluoro:      #EAFF4D;
+     --s8-coral:       #FF7F8A;
+     --s8-white:       #FFFFFF;
+     --s8-ink:         #1C1C1A;
+     --s8-soft:        #5A5A52;
+     --s8-radius:      0px;
+     --s8-transition:  all 0.22s ease;
+     --s8-max-width:   1200px;
+   }
+
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* 1 — BRAND TOKENS (defaults, overridden by Mission Control)
+   ─────────────────────────────────────────────────────────── */
+
+:root {
+  --s8-olive:       #3A4221;
+  --s8-pale:        #E7E4D9;
+  --s8-mid:         #9DA190;
+  --s8-fluoro:      #EAFF4D;
+  --s8-coral:       #FF7F8A;
+  --s8-white:       #FFFFFF;
+  --s8-ink:         #1C1C1A;
+  --s8-soft:        #5A5A52;
+  --s8-radius:      0px;
+  --s8-transition:  all 0.22s ease;
+  --s8-max-width:   1200px;
+  --s8-ghost:       rgba(58, 66, 33, 0.11);
+  --s8-shadow:      0 2px 24px rgba(58, 66, 33, 0.08);
+
+  /* Map Squarespace's own variables to our tokens */
+  --primary-accent:        var(--s8-olive);
+  --secondary-accent:      var(--s8-fluoro);
+  --background-color:      var(--s8-white);
+  --secondary-background:  var(--s8-pale);
+}
+
+
+/* 2 — GOOGLE FONTS
+   ─────────────────────────────────────────────────────────── */
+
+/* Add this to Code Injection → Header alongside the CSS link:
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500&family=Manrope:wght@300;400;500;600;700;800&family=Roboto:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+
+*/
+
+
+/* 3 — GLOBAL RESETS
+   ─────────────────────────────────────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Disable auto-hyphenation — looks bad with editorial type */
+p, h1, h2, h3, h4, h5 {
+  -webkit-hyphens: none !important;
+  -moz-hyphens: none !important;
+  hyphens: none !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+/* Remove Squarespace's default link underlines */
+.sqs-block-html a {
+  text-decoration: none !important;
+  background-image: none !important;
+}
+
+/* Smooth hover on all interactive elements */
+a,
+button,
+[data-sqsp-button] {
+  transition: var(--s8-transition) !important;
+}
+
+/* No rounded corners — sharp editorial style */
+.page-section.background-width--inset .section-background,
+.sqs-block-summary-v2 .img-wrapper,
+.sqs-gallery-block-grid .slide img,
+.sqs-gallery-block-stacked .image-wrapper img,
+.sqs-gallery-block-grid img,
+.gallery-masonry-item img,
+.gallery-grid-item img,
+.blog-basic-grid .image-wrapper,
+.blog-masonry .image-wrapper,
+.blog-side-by-side .image-wrapper,
+.product-block .image-container img,
+.products.collection-content-wrapper .list-grid .grid-item .grid-image,
+.user-items-list-simple .list-image,
+.user-items-list-carousel__slide img,
+.eventlist-column-thumbnail img,
+.sqs-block-quote,
+.header .header-nav .header-nav-item--folder .header-nav-folder-content {
+  border-radius: var(--s8-radius) !important;
+}
+
+
+/* 4 — TYPOGRAPHY
+   ─────────────────────────────────────────────────────────── */
+
+/* H1 — Cormorant Garamond, light display weight */
+h1, .sqsrte-heading-1 {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 300 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: -0.02em !important;
+  line-height: 0.95 !important;
+}
+
+/* H2 — Cormorant Garamond, regular */
+h2, .sqsrte-heading-2 {
+  font-family: 'Cormorant Garamond', Georgia, serif !important;
+  font-weight: 400 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.05 !important;
+}
+
+/* H3 — Manrope, uppercase label style */
+h3, .sqsrte-heading-3 {
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 700 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  line-height: 1.3 !important;
+}
+
+/* H4 — Manrope, small label */
+h4, .sqsrte-heading-4 {
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--s8-mid) !important;
+  letter-spacing: 0.25em !important;
+  text-transform: uppercase !important;
+  font-size: 0.7rem !important;
+}
+
+/* Body — Roboto */
+p, .sqsrte-paragraph {
+  font-family: 'Roboto', sans-serif !important;
+  color: var(--s8-soft) !important;
+  line-height: 1.8 !important;
+}
+
+/* Large body text */
+.sqsrte-large {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 1.1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.8 !important;
+  color: var(--s8-soft) !important;
+}
+
+/* Small/caption text */
+.sqsrte-small {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.75rem !important;
+  font-weight: 300 !important;
+  font-style: italic !important;
+  color: var(--s8-mid) !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Italic in headings becomes coral — editorial accent */
+h1 em, h2 em {
+  font-style: italic !important;
+  color: var(--s8-coral) !important;
+}
+
+/* Bold text in body uses olive */
+p strong, p b {
+  font-weight: 500 !important;
+  color: var(--s8-olive) !important;
+}
+
+/* Blockquotes — editorial style */
+blockquote p,
+.sqs-block-quote blockquote {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: clamp(1.6rem, 3vw, 2.4rem) !important;
+  font-weight: 300 !important;
+  font-style: italic !important;
+  color: var(--s8-olive) !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.01em !important;
+  border-left: 2px solid var(--s8-fluoro) !important;
+  padding-left: 1.5rem !important;
+}
+
+
+/* 5 — BUTTONS
+   ─────────────────────────────────────────────────────────── */
+
+/* All buttons — base styles */
+[data-sqsp-button],
+.sqs-button-element--primary,
+.sqs-button-element--secondary,
+.sqs-button-element--tertiary {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  border-radius: var(--s8-radius) !important;
+  transition: var(--s8-transition) !important;
+}
+
+/* Primary button — olive background */
+.sqs-button-element--primary {
+  background-color: var(--s8-olive) !important;
+  color: var(--s8-white) !important;
+  border: none !important;
+}
+.sqs-button-element--primary:hover {
+  opacity: 0.82 !important;
+}
+
+/* Secondary button — outline style */
+.sqs-button-element--secondary {
+  background-color: transparent !important;
+  color: var(--s8-olive) !important;
+  border: 1.5px solid var(--s8-ghost) !important;
+}
+.sqs-button-element--secondary:hover {
+  border-color: var(--s8-olive) !important;
+  background-color: transparent !important;
+}
+
+/* Tertiary button — text link with underline */
+.sqs-button-element--tertiary {
+  background: transparent !important;
+  color: var(--s8-olive) !important;
+  border: none !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1.5px !important;
+  text-underline-offset: 6px !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.sqs-button-element--tertiary:hover {
+  opacity: 0.5 !important;
+}
+
+/* Fluoro CTA button — used for high-priority actions
+   Apply the class "sqs-button-element--primary" and set
+   the section theme to "dark" to get olive text on fluoro */
+[data-section-theme="dark"] .sqs-button-element--primary,
+[data-section-theme="black"] .sqs-button-element--primary {
+  background-color: var(--s8-fluoro) !important;
+  color: var(--s8-olive) !important;
+}
+[data-section-theme="dark"] .sqs-button-element--primary:hover,
+[data-section-theme="black"] .sqs-button-element--primary:hover {
+  background-color: #d6eb35 !important;
+  opacity: 1 !important;
+}
+
+
+/* 6 — NAVIGATION
+   ─────────────────────────────────────────────────────────── */
+
+/* Nav logo/wordmark */
+.header-title-text a,
+.header-title-text a:visited {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: 0.05em !important;
+  text-decoration: none !important;
+  background-image: none !important;
+}
+
+/* Nav links */
+.header-nav-item > a {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.65rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-olive) !important;
+  opacity: 0.45;
+  border-bottom: 2px solid transparent !important;
+  padding-bottom: 0 !important;
+  background: none !important;
+  background-image: none !important;
+  transition: var(--s8-transition) !important;
+}
+
+/* Nav link hover & active */
+body:not(.header--menu-open) .header-nav-item--active > a,
+body:not(.header--menu-open) .header-nav-item > a:hover {
+  opacity: 1;
+  border-bottom: 2px solid var(--s8-fluoro) !important;
+}
+
+/* Nav CTA button (Gallery Hire) */
+#siteWrapper .header-actions-action--cta [data-sqsp-button],
+#siteWrapper .header-actions-action--cta .sqs-button-element--primary {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  background-color: var(--s8-fluoro) !important;
+  color: var(--s8-olive) !important;
+  border-radius: var(--s8-radius) !important;
+}
+#siteWrapper .header-actions-action--cta [data-sqsp-button]:hover {
+  background-color: #d6eb35 !important;
+}
+
+/* Nav dropdown */
+.header .header-nav .header-nav-item--folder .header-nav-folder-content {
+  background-color: var(--s8-white) !important;
+  box-shadow: var(--s8-shadow) !important;
+  border-top: 2px solid var(--s8-fluoro) !important;
+  padding: 1rem !important;
+  margin-left: 0 !important;
+}
+.header-nav-folder-item a {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.65rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.14em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-olive) !important;
+  opacity: 0.6;
+}
+.header-nav-folder-item a:hover {
+  opacity: 1 !important;
+}
+
+/* Active nav folder item — no default underline */
+body:not(.header--menu-open) .header-nav-item--active .header-nav-folder-title-text,
+body:not(.header--menu-open) .header-nav-item--active > a:not(.header-nav-folder-title) {
+  text-decoration: none !important;
+  background-image: none !important;
+}
+
+/* Hide social icons from desktop nav */
+@media (min-width: 768px) {
+  .header-actions-action--social {
+    display: none !important;
+  }
+}
+
+/* Mobile menu */
+.header-menu-nav-item a,
+.header--menu-open .header .user-accounts-text-link {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 2rem !important;
+  font-weight: 300 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Mobile menu — hide chevrons */
+.header-menu-nav-item-content .chevron {
+  display: none !important;
+}
+
+/* Mobile menu — active item */
+:is([aria-current="page"], [aria-current="true"]) .header-menu-nav-item-content {
+  background: none !important;
+  border-left: 2px solid var(--s8-fluoro);
+  padding-left: 0.75rem;
+}
+
+
+/* 7 — SECTION BACKGROUNDS
+   ─────────────────────────────────────────────────────────── */
+
+/* White sections — default */
+[data-section-theme="white"],
+[data-section-theme="white-bold"] {
+  background-color: var(--s8-white) !important;
+}
+
+/* Light sections — pale green */
+[data-section-theme="light"],
+[data-section-theme="light-bold"] {
+  background-color: var(--s8-pale) !important;
+}
+
+/* Dark sections — olive */
+[data-section-theme="dark"],
+[data-section-theme="dark-bold"] {
+  background-color: var(--s8-olive) !important;
+}
+[data-section-theme="dark"] h1,
+[data-section-theme="dark"] h2,
+[data-section-theme="dark-bold"] h1,
+[data-section-theme="dark-bold"] h2 {
+  color: var(--s8-white) !important;
+}
+[data-section-theme="dark"] p,
+[data-section-theme="dark-bold"] p {
+  color: rgba(255,255,255,0.65) !important;
+}
+
+/* Black sections — use for coral accent blocks */
+[data-section-theme="black"],
+[data-section-theme="black-bold"] {
+  background-color: var(--s8-coral) !important;
+}
+[data-section-theme="black"] h1,
+[data-section-theme="black"] h2,
+[data-section-theme="black-bold"] h1,
+[data-section-theme="black-bold"] h2 {
+  color: var(--s8-white) !important;
+}
+
+/* Bright sections — fluoro yellow */
+[data-section-theme="bright"],
+[data-section-theme="bright-inverse"] {
+  background-color: var(--s8-fluoro) !important;
+}
+[data-section-theme="bright"] h1,
+[data-section-theme="bright"] h2,
+[data-section-theme="bright-inverse"] h1,
+[data-section-theme="bright-inverse"] h2,
+[data-section-theme="bright"] h3,
+[data-section-theme="bright-inverse"] h3 {
+  color: var(--s8-olive) !important;
+}
+[data-section-theme="bright"] p,
+[data-section-theme="bright-inverse"] p {
+  color: rgba(58,66,33,0.7) !important;
+}
+
+/* Inset section background */
+.page-section.background-width--inset .section-border {
+  background-color: var(--s8-pale) !important;
+}
+
+
+/* 8 — NAVIGATION SECTION DIVIDERS
+   Editorial numbered section rhythm (H4 used as section label)
+   ─────────────────────────────────────────────────────────── */
+
+/* Horizontal rule block */
+.sqs-block-horizontalrule hr {
+  height: 1px !important;
+  background-color: var(--s8-ghost) !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+
+/* 9 — IMAGE BLOCKS & GALLERIES
+   ─────────────────────────────────────────────────────────── */
+
+/* Image block hover — subtle scale */
+.sqs-block-image .image-block-wrapper:hover img {
+  transform: scale(1.03) !important;
+  transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94) !important;
+}
+
+/* Gallery block — gap between images */
+.sqs-gallery-block-grid .slide {
+  margin: 2px !important;
+}
+
+/* Gallery carousel — gap between images */
+.sqs-gallery-design-strip-slide {
+  margin-right: 3px !important;
+}
+
+/* Gallery stacked — gap between images */
+.sqs-gallery-block-stacked .image-wrapper img {
+  margin-bottom: 3px !important;
+}
+
+/* Gallery caption */
+.image-slide-title {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.7rem !important;
+  font-weight: 300 !important;
+  font-style: italic !important;
+  color: var(--s8-mid) !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Gallery reel — slight inset feel */
+.gallery-reel-item img {
+  transform: scale(0.97);
+}
+
+/* Lightbox */
+.sqs-modal-lightbox-content .lightbox-inner .lightbox-content {
+  border-radius: var(--s8-radius) !important;
+}
+
+
+/* 10 — SUMMARY BLOCKS (used for exhibitions, workshops, stockroom)
+   ─────────────────────────────────────────────────────────── */
+
+/* Summary title */
+.summary-title-link {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 400 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: 0.01em !important;
+}
+.summary-title-link:hover {
+  opacity: 0.7 !important;
+}
+
+/* Summary excerpt */
+.sqs-block-summary-v2 .summary-excerpt p {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+  color: var(--s8-soft) !important;
+  line-height: 1.75 !important;
+}
+
+/* Summary metadata (dates, categories) */
+.sqs-block-summary-v2 .summary-metadata-item,
+.sqs-block-summary-v2 .summary-metadata-item--date {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-mid) !important;
+}
+
+/* Summary product price */
+.sqs-block-summary-v2 .summary-price .product-price {
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* Summary read more link */
+.summary-read-more-link {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-olive) !important;
+  background-color: transparent !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1.5px !important;
+  text-underline-offset: 6px !important;
+}
+.summary-read-more-link:hover {
+  opacity: 0.5 !important;
+}
+
+/* Sale & sold out badges */
+.product-mark.sale,
+.product-mark.sold-out,
+.sqs-block-summary-v2 .product-mark.sale,
+.sqs-block-summary-v2 .product-mark.sold-out {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.55rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  border-radius: var(--s8-radius) !important;
+  position: absolute !important;
+  top: 0.75rem !important;
+  right: 0.75rem !important;
+  padding: 0.35rem 0.6rem !important;
+  line-height: 1 !important;
+}
+.product-mark.sale {
+  background-color: var(--s8-fluoro) !important;
+  color: var(--s8-olive) !important;
+}
+.product-mark.sold-out {
+  background-color: var(--s8-pale) !important;
+  color: var(--s8-mid) !important;
+}
+
+
+/* 11 — AUTO LAYOUT BLOCKS (lists, carousels)
+   ─────────────────────────────────────────────────────────── */
+
+/* List section title */
+.user-items-list .list-section-title p {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 0.9rem !important;
+  color: var(--s8-soft) !important;
+  line-height: 1.8 !important;
+}
+
+/* List section title — bold becomes a display heading */
+.user-items-list .list-section-title p strong,
+.user-items-list .list-section-title p b {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 300 !important;
+  font-size: clamp(2rem, 4vw, 3.5rem) !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1 !important;
+  display: block !important;
+}
+
+/* List item title */
+.user-items-list-carousel .list-item-content__title,
+.user-items-list-simple .list-item-content__title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 400 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* List item button */
+.list-item-content__button {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-olive) !important;
+  background-color: transparent !important;
+  text-decoration: underline !important;
+  text-decoration-thickness: 1.5px !important;
+  text-underline-offset: 6px !important;
+}
+
+/* H4 as eyebrow label (underlined in editor = label style) */
+.list-section-title u,
+.list-section-title [style*="underline"],
+.list-item-content__description u,
+.list-item-content__description [style*="underline"] {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-mid) !important;
+  text-decoration: none !important;
+}
+
+
+/* 12 — NEWSLETTER BLOCK
+   ─────────────────────────────────────────────────────────── */
+
+.newsletter-block .newsletter-form-body {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Hide default title/description (use section text instead) */
+.newsletter-form-header-description p,
+.newsletter-form-body p {
+  display: none !important;
+}
+
+/* Newsletter input */
+.newsletter-form-field-element {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 300 !important;
+  border: none !important;
+  border-bottom: 1.5px solid var(--s8-ghost) !important;
+  background: transparent !important;
+  color: var(--s8-olive) !important;
+  padding: 0.75rem 0 !important;
+  border-radius: 0 !important;
+}
+.newsletter-form-field-element::placeholder {
+  color: var(--s8-mid) !important;
+  opacity: 0.6;
+}
+.newsletter-form-field-element:focus {
+  outline: none !important;
+  border-bottom-color: var(--s8-olive) !important;
+}
+
+/* Newsletter submit button */
+.newsletter-form-button {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  background-color: var(--s8-fluoro) !important;
+  color: var(--s8-olive) !important;
+  border-radius: var(--s8-radius) !important;
+  border: none !important;
+}
+.newsletter-form-button:hover {
+  background-color: #d6eb35 !important;
+}
+
+/* Newsletter disclaimer */
+.newsletter-form-footnote p {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.7rem !important;
+  font-style: italic !important;
+  color: var(--s8-mid) !important;
+  opacity: 0.6;
+}
+
+
+/* 13 — STORE & PRODUCT PAGES
+   ─────────────────────────────────────────────────────────── */
+
+/* Product grid — max width */
+@media (min-width: 768px) {
+  .tweak-products-width-inset .products.collection-content-wrapper {
+    max-width: var(--s8-max-width) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Product title */
+.product-title,
+.ProductItem-details-title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 400 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Product price */
+.product-price,
+.ProductItem-details-excerpt p {
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: 0.08em !important;
+}
+
+/* Original/sale price */
+.original-price {
+  color: var(--s8-mid) !important;
+  text-decoration: line-through;
+}
+
+/* Product category navigation */
+.products.collection-content-wrapper .nested-category-tree-wrapper .category-link {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-mid) !important;
+}
+.products.collection-content-wrapper .nested-category-tree-wrapper .category-link:hover,
+.products.collection-content-wrapper .nested-category-tree-wrapper .category-link.active {
+  color: var(--s8-olive) !important;
+}
+
+/* Add to cart button */
+.sqs-add-to-cart-button,
+.product-quantity-input button {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  background-color: var(--s8-olive) !important;
+  color: var(--s8-white) !important;
+  border-radius: var(--s8-radius) !important;
+}
+.sqs-add-to-cart-button:hover {
+  opacity: 0.82 !important;
+}
+
+
+/* 14 — BLOG PAGES
+   ─────────────────────────────────────────────────────────── */
+
+@media (min-width: 768px) {
+  .tweak-blog-basic-grid-width-inset .blog-basic-grid,
+  .tweak-blog-side-by-side-width-inset .blog-side-by-side {
+    max-width: var(--s8-max-width) !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Blog post title */
+.blog-title,
+.BlogItem-title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 400 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: -0.01em !important;
+}
+
+/* Blog meta (date, category, author) */
+.blog-categories-list a,
+.blog-author,
+.BlogItem-meta,
+.blog-meta-item {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-mid) !important;
+}
+
+/* Blog read more link */
+.blog-basic-grid .blog-more-link,
+.blog-masonry .blog-more-link,
+.blog-side-by-side .blog-more-link,
+.blog-single-column .blog-more-link {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-olive) !important;
+}
+
+
+/* 15 — EVENTS PAGES
+   ─────────────────────────────────────────────────────────── */
+
+/* Event meta dates — use fluoro accent */
+.eventlist-meta,
+.eventitem-meta {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-olive) !important;
+}
+
+/* Event title */
+.eventlist-title a {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 400 !important;
+  color: var(--s8-olive) !important;
+}
+
+
+/* 16 — ACCORDION BLOCKS
+   ─────────────────────────────────────────────────────────── */
+
+/* Accordion — remove dividers */
+.sqs-block-accordion .accordion-divider {
+  display: none !important;
+}
+
+/* Accordion item container */
+.sqs-block-accordion .accordion-item__click-target {
+  border-radius: var(--s8-radius) !important;
+  padding: 1.5rem !important;
+  margin-top: 0.75rem;
+  background-color: var(--s8-pale) !important;
+}
+
+/* Accordion open state */
+.accordion-item[data-is-open="true"] .accordion-item__click-target {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* Accordion title */
+.accordion-item__title {
+  font-family: 'Manrope', sans-serif !important;
+  font-weight: 600 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: 0.02em !important;
+}
+
+/* Accordion description */
+.accordion-item__description {
+  font-family: 'Roboto', sans-serif !important;
+  font-weight: 400 !important;
+  color: var(--s8-soft) !important;
+  line-height: 1.8 !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+.sqs-block-accordion .accordion-item__dropdown--open {
+  background-color: var(--s8-pale) !important;
+  border-radius: 0 0 var(--s8-radius) var(--s8-radius) !important;
+}
+
+
+/* 17 — FORM BLOCKS
+   ─────────────────────────────────────────────────────────── */
+
+/* Form field inputs */
+.field-element {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.9rem !important;
+  border: none !important;
+  border-bottom: 1px solid var(--s8-ghost) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--s8-ink) !important;
+}
+.field-element:focus {
+  outline: none !important;
+  border-bottom-color: var(--s8-olive) !important;
+}
+
+/* Form field labels */
+.form-label,
+.field-label {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.25em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-mid) !important;
+}
+
+/* Form submit button */
+.form-button-wrapper input[type="submit"],
+.form-wrapper .field-submit input {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  background-color: var(--s8-olive) !important;
+  color: var(--s8-white) !important;
+  border-radius: var(--s8-radius) !important;
+  border: none !important;
+}
+.form-button-wrapper input[type="submit"]:hover {
+  opacity: 0.82 !important;
+}
+
+/* Form disclaimer */
+.form-wrapper .react-form-contents p,
+.sqs-modal-lightbox-content .lightbox-inner .lightbox-content .form-wrapper p {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.7rem !important;
+  font-style: italic !important;
+  color: var(--s8-mid) !important;
+  opacity: 0.6;
+}
+
+
+/* 18 — FOOTER
+   ─────────────────────────────────────────────────────────── */
+
+/* Footer links */
+footer .sqs-block-html a {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.85rem !important;
+  color: var(--s8-soft) !important;
+  text-decoration: none !important;
+  background-image: none !important;
+  transition: var(--s8-transition) !important;
+}
+footer .sqs-block-html a:hover {
+  color: var(--s8-olive) !important;
+  opacity: 1 !important;
+}
+
+/* Footer headings (column titles) */
+footer h3, footer h4 {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-mid) !important;
+  border-bottom: 1px solid var(--s8-ghost) !important;
+  padding-bottom: 0.75rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+/* Footer brand name */
+footer h2 {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 600 !important;
+  color: var(--s8-olive) !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* Footer body text */
+footer p {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 0.82rem !important;
+  color: var(--s8-mid) !important;
+  line-height: 1.8 !important;
+}
+
+
+/* 19 — PORTFOLIO PAGES
+   ─────────────────────────────────────────────────────────── */
+
+@media (min-width: 768px) {
+  .tweak-portfolio-grid-basic-width-inset .portfolio-grid-basic,
+  .tweak-portfolio-grid-overlay-width-inset .portfolio-grid-overlay {
+    max-width: var(--s8-max-width) !important;
+    margin: 0 auto !important;
+  }
+}
+
+/* Portfolio overlay text */
+.portfolio-overlay-title {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-weight: 400 !important;
+  color: var(--s8-white) !important;
+  letter-spacing: 0.01em !important;
+}
+
+
+/* 20 — UTILITY CLASSES
+   Use these as custom CSS classes in Squarespace blocks.
+   Add via: block → pencil → Advanced → Additional CSS Class
+   ─────────────────────────────────────────────────────────── */
+
+/* .s8-eyebrow — small uppercase label above headings */
+.s8-eyebrow p {
+  font-family: 'Manrope', sans-serif !important;
+  font-size: 0.6rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: var(--s8-mid) !important;
+  margin-bottom: 0.5rem !important;
+  line-height: 1 !important;
+}
+
+/* .s8-display — large light editorial heading */
+.s8-display h2 {
+  font-size: clamp(2.5rem, 6vw, 5.5rem) !important;
+  font-weight: 200 !important;
+  line-height: 0.9 !important;
+  letter-spacing: -0.025em !important;
+}
+
+/* .s8-olive-bg — olive section background */
+.s8-olive-bg {
+  background-color: var(--s8-olive) !important;
+}
+.s8-olive-bg h1, .s8-olive-bg h2, .s8-olive-bg h3 {
+  color: var(--s8-white) !important;
+}
+.s8-olive-bg p {
+  color: rgba(255,255,255,0.65) !important;
+}
+
+/* .s8-pale-bg — pale green section */
+.s8-pale-bg {
+  background-color: var(--s8-pale) !important;
+}
+
+/* .s8-fluoro-bg — fluoro yellow section */
+.s8-fluoro-bg {
+  background-color: var(--s8-fluoro) !important;
+}
+.s8-fluoro-bg h1, .s8-fluoro-bg h2, .s8-fluoro-bg h3 {
+  color: var(--s8-olive) !important;
+}
+.s8-fluoro-bg p {
+  color: rgba(58,66,33,0.7) !important;
+}
+
+/* .s8-btn-fluoro — fluoro CTA button variant */
+.s8-btn-fluoro .sqs-button-element--primary,
+.s8-btn-fluoro [data-sqsp-button] {
+  background-color: var(--s8-fluoro) !important;
+  color: var(--s8-olive) !important;
+}
+.s8-btn-fluoro .sqs-button-element--primary:hover {
+  background-color: #d6eb35 !important;
+  opacity: 1 !important;
+}
+
+/* .s8-flush — remove section padding */
+.s8-flush .page-section-inner {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* .s8-ruled — top border rule */
+.s8-ruled {
+  border-top: 1px solid var(--s8-ghost) !important;
+}
+
+
+/* 21 — SCROLL & INTERACTION
+   ─────────────────────────────────────────────────────────── */
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global hover opacity (links, thumbnails) */
+.sqs-block-html a:hover,
+.summary-read-more-link:hover,
+.list-item-content__button:hover,
+.blog-more-link:hover,
+.sqs-block-archive a:hover {
+  opacity: 0.5 !important;
+  transition: var(--s8-transition) !important;
+}
+
+/* Image hover scale */
+.sqs-block-summary-v2 .img-wrapper:hover img,
+.products.collection-content-wrapper .list-grid .grid-item .grid-image:hover img {
+  transform: scale(1.04) !important;
+  transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94) !important;
+}
+
+
+/* 22 — MOBILE RESPONSIVE
+   ─────────────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+
+  /* Spacer blocks visible on mobile */
+  .sqs-block-spacer {
+    height: 16px !important;
+    display: block !important;
+  }
+
+  /* Smaller display headings on mobile */
+  h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem) !important;
+    line-height: 1 !important;
+  }
+  h2 {
+    font-size: clamp(1.8rem, 8vw, 2.8rem) !important;
+  }
+
+  /* Gallery fullscreen height on mobile */
+  .gallery-fullscreen-slideshow[data-width="full"] {
+    height: 50vh !important;
+  }
+
+  /* Mobile nav CTA spacing */
+  .header-menu-cta a {
+    margin-bottom: 5rem;
+  }
+
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   END OF FILE
+   sogold.studio · Honor-Bowden
+   GitHub: sogoldstudio/sogold-scripts · studio8.css
+   ═══════════════════════════════════════════════════════════ */
